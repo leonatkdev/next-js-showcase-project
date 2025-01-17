@@ -21,6 +21,8 @@ const Navigation = () => {
     },
   ];
 
+  console.log('Navigation')
+
   return (
     <nav className="bg-[#1A1A1A]">
       <div className=" max-w-7xl m-auto text-center  bg-[#1A1A1A] text-white  px-4 pt-10 pb-5 ">
