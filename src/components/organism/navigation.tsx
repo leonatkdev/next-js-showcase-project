@@ -35,10 +35,10 @@ const Navigation = () => {
             width={180}
             height={38}
             // className="dark:invert"
-            className="invert"
+            className="invert h-7 md:h-[34px] lg:h-12"
           />
 
-          <ul className="flex items-cente justify-center  text-white gap-6">
+          <ul className="items-cente justify-center  text-white gap-6 hidden lg:flex">
             <li>
               <a href="/home">Home</a>
             </li>
@@ -52,6 +52,16 @@ const Navigation = () => {
               <a href="/contact">Contact</a>
             </li>
           </ul>
+
+          <button className="lg:hidden">
+            <Image  
+             src="/navMenu.png"
+            alt="Navigation Menu"
+            width={28}
+            height={28}
+            // className="dark:invert"
+            />
+          </button>
         </div>
       </div>
     </nav>

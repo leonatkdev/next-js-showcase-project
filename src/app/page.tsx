@@ -2,8 +2,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { MdArrowOutward } from "react-icons/md";
 import { FaCircleCheck } from "react-icons/fa6";
-import ArrowRight from "../../images/arrowRight";
-import ArrowLeft from "../../images/arrowLeft";
+import Module from "@/components/molecules/module";
 
 export const metadata: Metadata = {
   title: "Estate Project",
@@ -41,10 +40,6 @@ export default function Home() {
       text: "Smart Investments, Informed Decisions",
     },
   ];
-
-  const Component = () => {
-    return <div className="text-white">Component</div>;
-  };
 
   return (
     <>
@@ -110,37 +105,28 @@ export default function Home() {
       </header>
 
       <main className="flex flex-col gap-8 row-start-2 bg-[#141414] items-center sm:items-start ">
-        <div className="max-w-7xl m-auto grid grid-cols-[1fr_180px]">
-          <Image
-            src="/starSection.png"
-            width={60}
-            height={24}
-            alt="Section icon"
-            className="col-span-full"
-          />
-          <h2 className=" text-[38px] text-[#FFFFFF]">Featured Properties</h2>
-          <p className="text-[#999999]">
-            Explore our handpicked selection of featured properties. Each
-            listing offers a glimpse into exceptional homes and investments
-            available through Estatein.
-          </p>
-          <button className="bg-[#1A1A1A] border border-[#262626] px-[20px] py-[14px] rounded-lg text-white">View All Properties</button>
-          <div className="border-b border-[#262626] pb-[30px] col-span-full">
-            <Component />
-          </div>
-          <div className="flex items-center gap-[10px] pt-4 col-span-full">
-            <button className=" w-11 h-11  justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A] lg:order-2">
-              <ArrowLeft />
-            </button>
-            <span className="text-[#999999] lg:order-1 lg:mr-auto">
-              <span className=" text-white">01</span>
-              of 60
-            </span>
-            <button className=" w-11 h-11 justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A] lg:order-3">
-              <ArrowRight />
-            </button>
-          </div>
-        </div>
+        <Module
+          title="Featured Properties"
+          desc=" Explore our handpicked selection of featured properties. Each
+      listing offers a glimpse into exceptional homes and investments
+      available through Estatein."
+          linktitle=" View All Properties"
+          moduleName="property-cards"
+        />
+
+        <Module
+          title="What Our Clients Say"
+          desc=" Read the success stories and heartfelt testimonials from our valued clients. Discover why they chose Estatein for their real estate needs."
+          linktitle="View All Testimonials"
+          moduleName="testimonials"
+        />
+
+        <Module
+          title="Frequently Asked Questions"
+          desc="Find answers to common questions about Estatein's services, property listings, and the real estate process. We're here to provide clarity and assist you every step of the way."
+          linktitle="View All FAQ’s"
+          moduleName="faq"
+        />
       </main>
     </>
   );

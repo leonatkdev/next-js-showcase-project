@@ -18,6 +18,11 @@ const Footer = () => {
         name: "Portfolio",
       },
     ],
+    Contact_us: [
+      {
+        name: "Contact Form",
+      },
+    ],
   };
 
   console.log("footer");
@@ -43,7 +48,7 @@ const Footer = () => {
         </div>
       </div>
       <footer className="bg-[#141414] text-white">
-        <div className="flex max-w-7xl m-auto pt-12 justify-between pb-20">
+        <div className="flex flex-col max-w-7xl m-auto pt-12 justify-between pb-20 px-4 gap-12 lg:flex-row ">
           <div className="flex gap-6 flex-col">
             <Image
               src="/next.svg"
@@ -51,7 +56,7 @@ const Footer = () => {
               width={180}
               height={38}
               // className="dark:invert"
-              className="invert"
+              className="invert h-[34px] "
             />
             <div>
               <input
@@ -61,12 +66,11 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex gap-6">
+          <div className=" grid grid-cols-2 gap-6 lg:flex lg:">
             {Object.keys(menuFooter).map((elm, index) => {
-              console.log("elm", elm);
               return (
-                <div key={index}>
-                  <span className="text-[#999999]">{elm}</span>
+                <div key={index} className="border-b border-[#262626] pb-5 lg:border-none">
+                  <span className="block text-[#999999] pb-4 lg:pb-6">{elm}</span>
                   <div>
                     {menuFooter[elm] &&
                       menuFooter[elm]?.map((menu) => (
