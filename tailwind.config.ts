@@ -13,6 +13,9 @@ export default {
         foreground: "var(--foreground)",
       },
     },
+    backgroundImage: {
+      gradientToRight: "linear-gradient(45deg , #262626, #262626 53%)",
+    },
     boxShadow: {
       archievcardsshadow: "0 0 0 4px #191919", // Custom shadow
     },

@@ -6,7 +6,7 @@ const Testimonials = () => {
     <div className=" p-[30px] text-white border border-[#262626] rounded-[10px]">
       <div className="flex gap-2 pb-5">
         {new Array(5).fill("")?.map((star, index) => (
-          <Image src="/star.png" width={30} height={30} alt="stars" />
+          <Image src="/star.png" width={30} height={30} alt="stars"  key={index}/>
         ))}
       </div>
       <p className=" text-lg font-semibold pb-[6px]">Exceptional Service!</p>

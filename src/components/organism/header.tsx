@@ -10,6 +10,7 @@ const Header = ({
   showButtons = false,
   showHeaderTabs,
   showSecondTabs,
+  costumeHeaderClass,
 }) => {
   const headerTabsData = [
     {
@@ -42,17 +43,23 @@ const Header = ({
   ];
 
   return (
-    <header className="flex flex-col px-4 pt-8 bg-[#141414] text-white">
+    <header
+      className={`flex flex-col px-4 pt-8 bg-[#141414] text-white ${
+        costumeHeaderClass ? costumeHeaderClass : ""
+      }`}
+    >
       <div className="flex flex-col items-center md:flex-row-reverse max-w-7xl m-auto">
-        <div className="md:w-1/2">
-          <Image
-            src={imgSrc}
-            width={960}
-            height={500}
-            alt="Picture of the author"
-          />
-        </div>
-        <div className="md:w-1/2">
+        {imgSrc && (
+          <div className="md:w-1/2">
+            <Image
+              src={imgSrc}
+              width={960}
+              height={500}
+              alt="Picture of the author"
+            />
+          </div>
+        )}
+        <div className={`${imgSrc && "md:w-1/2"}`}>
           <h1 className=" text-[28px] font-semibold lg:text-5xl">{title}</h1>
           <p className="text-[#999999] pt-4 font-medium lg:text-base lg:pt-5">
             {desc}
@@ -67,9 +74,9 @@ const Header = ({
               </button>
             </div>
           )}
-          <div className=" grid grid-cols-2 lg:flex flex-col gap-4 mt-10  mb-10 lg:flex-row lg:mt-12">
-            {showHeaderTabs &&
-              headerTabsData?.map((elm, index) => (
+          {showHeaderTabs && (
+            <div className=" grid grid-cols-2 lg:flex flex-col gap-4 mt-10  mb-10 lg:flex-row lg:mt-12">
+              {headerTabsData?.map((elm, index) => (
                 <div
                   key={index}
                   className={`px-5 py-[14px] bg-[#1A1A1A] border border-[#262626] rounded-lg justify-items-center lg:justify-items-start ${
@@ -84,7 +91,8 @@ const Header = ({
                   </p>
                 </div>
               ))}
-          </div>
+            </div>
+          )}
         </div>
       </div>
       {showSecondTabs && (

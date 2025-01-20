@@ -18,8 +18,8 @@ const AchievementCard = () => {
 
   return (
     <div className="grid grid-flow-row lg:grid-cols-3 text-white gap-5">
-      {data?.map((elm) => (
-        <div className="p-[30px] border border-[#262626] rounded-[10px] shadow-archievcardsshadow">
+      {data?.map((elm, index) => (
+        <div key={index} className="p-[30px] border border-[#262626] rounded-[10px] shadow-archievcardsshadow">
           <span className="block text-xl font-semibold pb-4 pb-4">{elm?.title}</span>
           <p className=" text-sm font-medium text-[#999999]"> {elm?.desc}</p>
         </div>

@@ -44,13 +44,16 @@ const Navigation = () => {
               <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/about">About</Link>
+              <Link href="/about-us">About</Link>
+            </li>
+            <li>
+              <Link href="/roperties">Properties</Link>
             </li>
             <li>
               <Link href="/services">Services</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact-us">Contact</Link>
             </li>
           </ul>
 

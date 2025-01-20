@@ -30,7 +30,7 @@ const ExperienceCard = () => {
   return (
     <div className="grid grid-flow-row lg:grid-cols-3 text-white gap-5">
       {data?.map((elm, index) => (
-        <div>
+        <div key={index}>
           <span className=" block py-[14px] px-4 text-base font-medium border-l bord    er-l-[#703BF7]">Step {index < 10 ? "0" + index : index }</span>
           <div className="border border-[#262626] p-[30px] rounded-[10px] rounded-tl-[0px]">
           <span className=" block font-semibold text-xl pb-4 ">{elm?.title}</span>
