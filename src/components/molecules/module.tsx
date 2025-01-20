@@ -90,9 +90,9 @@ const Module = ({
     <div className="max-w-7xl m-auto w-full px-4 py-[40px] grid grid-cols-2 lg:grid-cols-[1fr_180px]  lg:py-[60px]">
       <SectionHeader title={title} desc={desc} />
       {linktitle && <CallToAction linkTitle={linktitle} />}
-      <div className="border-b border-[#262626] py-[30px] col-span-full">
-        {ModuleChild && <ModuleChild />}
-      </div>
+      {ModuleChild && <div className="border-b border-[#262626] py-[30px] col-span-full">
+         <ModuleChild />
+      </div>}
       {showPagination && <Pagination />}
     </div>
   );

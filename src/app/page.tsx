@@ -4,6 +4,7 @@ import { MdArrowOutward } from "react-icons/md";
 import { FaCircleCheck } from "react-icons/fa6";
 import Module from "@/components/molecules/module";
 import Header from "@/components/organism/header";
+import HeaderTabs from "@/components/atoms/header-tabs";
 
 export const metadata: Metadata = {
   title: "Estate Project",
@@ -21,8 +22,8 @@ export default function Home() {
         imgSrc="/homepage.png"
         showButtons={true}
         showHeaderTabs={true}
-        showSecondTabs={true}
       />
+      <HeaderTabs />
 
       <main className="flex flex-col row-start-2 bg-[#141414] items-center sm:items-start ">
         <Module
