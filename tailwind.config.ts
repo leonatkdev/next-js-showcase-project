@@ -13,6 +13,9 @@ export default {
         foreground: "var(--foreground)",
       },
     },
+    boxShadow: {
+      archievcardsshadow: "0 0 0 4px #191919", // Custom shadow
+    },
   },
   plugins: [],
 } satisfies Config;

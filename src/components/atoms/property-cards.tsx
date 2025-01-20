@@ -25,7 +25,7 @@ const PropertyCards = () => {
         An elegant 3-bedroom, 2.5-bathroom townhouse in a gated community...
         Read More
       </p>
-      <div className="flex gap-[6px] pt-5">
+      <div className="flex flex-wrap gap-[6px] pt-5">
         <Tab value={4} name="Bedroom" />
         <Tab value={3} name="Bathroom" />
         <Tab name="Villa" />

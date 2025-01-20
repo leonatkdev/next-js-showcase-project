@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navigation = () => {
   const menuLinks = [
@@ -40,16 +41,16 @@ const Navigation = () => {
 
           <ul className="items-cente justify-center  text-white gap-6 hidden lg:flex">
             <li>
-              <a href="/home">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="/about">About</a>
+              <Link href="/about">About</Link>
             </li>
             <li>
-              <a href="/services">Services</a>
+              <Link href="/services">Services</Link>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <Link href="/contact">Contact</Link>
             </li>
           </ul>
 

@@ -6,39 +6,18 @@ import ArrowLeft from "@/images/arrowLeft";
 import PropertyCards from "../atoms/property-cards";
 import Testimonials from "../atoms/testimonials";
 import FAQ from "../atoms/faq";
+import AchievementCard from "../atoms/achievement-card";
+import ExperienceCard from "../atoms/experience-card";
+import TeamCard from "../atoms/team-card";
 
-const Module = ({ title, desc, moduleName, linktitle, linkTag }) => {
-
-  const dummyData = [
-    {
-      image: "",
-      title: "Seaside Serenity Villa",
-      desc: "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood... Read More",
-      rooms: 4,
-      bathrooms: 3,
-      type: "Villa",
-      price: "$550,000",
-    },
-    {
-      image: "",
-      title: "Metropolitan Haven",
-      desc: "A chic and fully-furnished 2-bedroom apartment with panoramic city views... Read More",
-      rooms: 2,
-      bathrooms: 2,
-      type: "Villa",
-      price: "$550,000",
-    },
-    {
-      image: "",
-      title: "Seaside Serenity Villa",
-      desc: "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood... Read More",
-      rooms: 4,
-      bathrooms: 3,
-      type: "Villa",
-      price: "$550,000",
-    },
-  ];
-
+const Module = ({
+  title,
+  desc,
+  moduleName,
+  linktitle,
+  linkTag,
+  showPagination,
+}) => {
   const Pagination = ({}) => (
     <div className="flex items-center gap-[10px] pt-4 lg:col-span-full">
       <button className=" w-11 h-11  justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A] lg:order-2">
@@ -88,8 +67,17 @@ const Module = ({ title, desc, moduleName, linktitle, linkTag }) => {
       case "faq": {
         return FAQ;
       }
+      case "achievement-card": {
+        return AchievementCard;
+      }
+      case "experience-card": {
+        return ExperienceCard;
+      }
+      case "team-card": {
+        return TeamCard;
+      }
       default: {
-        ModuleComponent = <></>;
+        ModuleComponent = null;
       }
     }
 
@@ -101,11 +89,11 @@ const Module = ({ title, desc, moduleName, linktitle, linkTag }) => {
   return (
     <div className="max-w-7xl m-auto w-full px-4 py-[40px] grid grid-cols-2 lg:grid-cols-[1fr_180px]  lg:py-[60px]">
       <SectionHeader title={title} desc={desc} />
-      <CallToAction linkTitle={linktitle} />
+      {linktitle && <CallToAction linkTitle={linktitle} />}
       <div className="border-b border-[#262626] py-[30px] col-span-full">
-        <ModuleChild />
+        {ModuleChild && <ModuleChild />}
       </div>
-      <Pagination />
+      {showPagination && <Pagination />}
     </div>
   );
 };
