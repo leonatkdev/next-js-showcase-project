@@ -2,10 +2,20 @@ import React from "react";
 import Header from "@/components/organism/header";
 import HeaderTabs from "@/components/atoms/header-tabs";
 import ModuleWrapper from "@/components/molecules/moduleWrapper";
+ 
+interface tabProps {
+  name: string
+}
+
+interface FormFieldProps {
+  title: string,
+  placeholder: string,
+  costumeStyle?: string
+}
 
 const Page = () => {
 
-  const Tab = ({  name }) => {
+  const Tab = ({ name }: tabProps) => {
     return (
       <div className="border border-[#262626] bg-[#1A1A1A] rounded-[28px] py-[6px] px-[14px]">
         {name}
@@ -16,27 +26,30 @@ const Page = () => {
   const LocationCard = () => {
     return (
       <div className=" text-white bg-[#141414] p-6 border border-[#262626] rounded-lg">
-        <span className=" block mb-1 text-sm font-medium">Main Headquarters</span>
+        <span className=" block mb-1 text-sm font-medium">
+          Main Headquarters
+        </span>
         <p className=" font-semibold text-xl mb-2">
-        123 Estatein Plaza, City Center, Metropolis
+          123 Estatein Plaza, City Center, Metropolis
         </p>
         <span className="text-[#999999] text-sm">
-        Our main headquarters serve as the heart of Estatein. Located in the bustling city center, this is where our core team of experts operates, driving the excellence and innovation that define us.
+          Our main headquarters serve as the heart of Estatein. Located in the
+          bustling city center, this is where our core team of experts operates,
+          driving the excellence and innovation that define us.
         </span>
         <div className="flex flex-wrap gap-[6px] py-5">
-        <Tab value={4} name="info@estatein.com" />
-        <Tab value={3} name="+1 (123) 456-7890" />
-        <Tab name="Metropolis" />
-      </div>
-      <button className="bg-[#703BF7] py-[14px] px-5 rounded-lg text-sm w-full">
+          <Tab  name="info@estatein.com" />
+          <Tab  name="+1 (123) 456-7890" />
+          <Tab name="Metropolis" />
+        </div>
+        <button className="bg-[#703BF7] py-[14px] px-5 rounded-lg text-sm w-full">
           View Property Details
         </button>
       </div>
-    )
-  }
+    );
+  };
 
-
-  const FormField = ({ title, placeholder, costumeStyle }) => {
+  const FormField = ({ title, placeholder, costumeStyle }: FormFieldProps) => {
     return (
       <div className={`flex flex-col gap-[14px]  ${costumeStyle}`}>
         <label className=" text-white text-base font-semibold">{title}</label>
@@ -98,13 +111,18 @@ const Page = () => {
           desc="Estatein is here to serve you across multiple locations. Whether you're looking to meet our team, discuss real estate opportunities, or simply drop by for a chat, we have offices conveniently located to serve your needs. Explore the categories below to find the Estatein office nearest to you"
         >
           <div className="flex gap-[10px] p-[10px] bg-[#1A1A1A] rounded-lg w-fit mb-8">
-            {["All", "Regional", "International"].map((elm , index) => (
-              <span key={index} className="block px-5 py-[14px] border border-[#262626] rounded-lg bg-[#141414] text-sm font-medium text-[white] ">{elm}</span>
+            {["All", "Regional", "International"].map((elm, index) => (
+              <span
+                key={index}
+                className="block px-5 py-[14px] border border-[#262626] rounded-lg bg-[#141414] text-sm font-medium text-[white] "
+              >
+                {elm}
+              </span>
             ))}
           </div>
           <div className="grid gap-5 lg:grid-cols-2 ">
-          <LocationCard />
-          <LocationCard />
+            <LocationCard />
+            <LocationCard />
           </div>
         </ModuleWrapper>
       </main>

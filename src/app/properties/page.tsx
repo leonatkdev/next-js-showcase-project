@@ -4,6 +4,13 @@ import Module from "@/components/molecules/module";
 import { CiSearch } from "react-icons/ci";
 import { HiLocationMarker } from "react-icons/hi";
 
+interface FormFieldProps {
+  title: string,
+  placeholder: string,
+  costumeStyle?: string
+}
+
+
 const Page = () => {
   const Section = () => {
     return (
@@ -42,12 +49,12 @@ const Page = () => {
     );
   };
 
-  const FormField = ({ title, placeholder, costumeStyle }) => {
+  const FormField = ({ title, placeholder, costumeStyle }: FormFieldProps) => {
     return (
       <div className={`flex flex-col gap-[14px]  ${costumeStyle}`}>
         <label className=" text-white text-base font-semibold">{title}</label>
         <input
-          placeholder="placeholder"
+          placeholder={placeholder}
           className=" px-5 py-4 mt-auto font-medium  text-base text-[#666666] bg-[#1A1A1A] rounded-md border border-[#262626] "
         />
       </div>

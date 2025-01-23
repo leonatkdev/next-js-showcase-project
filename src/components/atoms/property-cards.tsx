@@ -1,7 +1,12 @@
 import Image from "next/image";
 import React from "react";
 
-const Tab = ({ value, name }) => {
+interface TabProps {
+  value?: number;
+  name: string;
+}
+
+const Tab: React.FC<TabProps> = ({ value, name }) => {
   return (
     <div className="border border-[#262626] bg-[#1A1A1A] rounded-[28px] py-[6px] px-[14px]">
       {value && value + "-"}
@@ -20,7 +25,9 @@ const PropertyCards = () => {
         alt="Section icon"
         // className="col-span-full"
       />
-      <span className="block pt-4 pb-[2px] font-semibold text-lg">Rustic Retreat Cottage</span>
+      <span className="block pt-4 pb-[2px] font-semibold text-lg">
+        Rustic Retreat Cottage
+      </span>
       <p className="text-[#999999] text-sm">
         An elegant 3-bedroom, 2.5-bathroom townhouse in a gated community...
         Read More

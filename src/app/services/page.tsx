@@ -4,8 +4,19 @@ import Header from "@/components/organism/header";
 import HeaderTabs from "@/components/atoms/header-tabs";
 import ModuleWrapper from "@/components/molecules/moduleWrapper";
 
+interface BoxProps {
+  title: string;
+  desc: string;
+}
+
+interface BigBoxProps {
+  title: string;
+  desc: string;
+  btnText: string;
+}
+
 const Page = () => {
-  const Box = ({  title, desc }) => {
+  const Box = ({ title, desc }: BoxProps) => {
     return (
       <div className="  border border-[#262626] rounded-[10px] p-6 text-white">
         <span className=" block text-lg font-semibold ">{title}</span>
@@ -14,7 +25,7 @@ const Page = () => {
     );
   };
 
-  const BigBox = ({ title, desc, btnText }) => {
+  const BigBox: React.FC<BigBoxProps> = ({ title, desc, btnText }) => {
     return (
       <div className="border border-[#262626] bg-[#1A1A1A] rounded-[10px] p-6 text-white lg:col-[2/4]">
         <div>
@@ -107,9 +118,9 @@ const Page = () => {
               Smart Investments, Informed Decisions
             </h2>
             <p className="text-[#999999] col-span-full mb-10 ">
-              Building a real estate portfolio requires a strategic approach.
+              {`Building a real estate portfolio requires a strategic approach.
               Estatein's Investment Advisory Service empowers you to make smart
-              investments and informed decisions.
+              investments and informed decisions.`}
             </p>
 
             <div className="border border-[#262626] bg-[#1A1A1A] rounded-[10px] p-6 text-white">

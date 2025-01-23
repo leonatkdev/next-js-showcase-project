@@ -10,14 +10,45 @@ import AchievementCard from "../atoms/achievement-card";
 import ExperienceCard from "../atoms/experience-card";
 import TeamCard from "../atoms/team-card";
 
+// ModuleName type
+type ModuleName = 
+  | "property-cards"
+  | "testimonials"
+  | "faq"
+  | "achievement-card"
+  | "experience-card"
+  | "team-card";
+
+// ModuleComponent type
+type ModuleComponentType = React.FC | null;
+
+// Props interfaces
+interface ModuleProps {
+  title: string;
+  desc: string;
+  moduleName?: ModuleName; // Updated to allow undefined
+  linktitle?: string;
+  showPagination?: boolean;
+}
+
+interface SectionHeaderProps {
+  title: string;
+  desc: string;
+}
+
+interface CallToActionProps {
+  linkTitle: string;
+}
+
+// Module component
 const Module = ({
   title,
   desc,
   moduleName,
   linktitle,
-  showPagination,
-}) => {
-  const Pagination = ({}) => (
+  showPagination = false,
+}: ModuleProps) => {
+  const Pagination = () => (
     <div className="flex items-center gap-[10px] pt-4 lg:col-span-full">
       <button className=" w-11 h-11  justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A] lg:order-2">
         <ArrowLeft />
@@ -32,7 +63,7 @@ const Module = ({
     </div>
   );
 
-  const SectionHeader = ({ title, desc }) => (
+  const SectionHeader: React.FC<SectionHeaderProps> = ({ title, desc }) => (
     <>
       <Image
         src="/starSection.png"
@@ -48,39 +79,30 @@ const Module = ({
     </>
   );
 
-  const CallToAction = ({ linkTitle }) => (
+  const CallToAction: React.FC<CallToActionProps> = ({ linkTitle }) => (
     <button className="bg-[#1A1A1A] border border-[#262626] text-sm px-[20px] py-[14px] rounded-lg text-white col-[1] row-[5] lg:col-[2] lg:row-[2/4] h-fit self-center">
       {linkTitle}
     </button>
   );
 
-  const getModule = (moduleName) => {
-    let ModuleComponent = null;
+  // Handle undefined or invalid moduleName
+  const getModule = (moduleName?: ModuleName): ModuleComponentType => {
     switch (moduleName) {
-      case "property-cards": {
+      case "property-cards":
         return PropertyCards;
-      }
-      case "testimonials": {
+      case "testimonials":
         return Testimonials;
-      }
-      case "faq": {
+      case "faq":
         return FAQ;
-      }
-      case "achievement-card": {
+      case "achievement-card":
         return AchievementCard;
-      }
-      case "experience-card": {
+      case "experience-card":
         return ExperienceCard;
-      }
-      case "team-card": {
+      case "team-card":
         return TeamCard;
-      }
-      default: {
-        ModuleComponent = null;
-      }
+      default:
+        return null;
     }
-
-    return ModuleComponent;
   };
 
   const ModuleChild = getModule(moduleName);
@@ -89,9 +111,11 @@ const Module = ({
     <div className="max-w-7xl m-auto w-full px-4 py-[40px] grid grid-cols-2 lg:grid-cols-[1fr_180px]  lg:py-[60px]">
       <SectionHeader title={title} desc={desc} />
       {linktitle && <CallToAction linkTitle={linktitle} />}
-      {ModuleChild && <div className="border-b border-[#262626] py-[30px] col-span-full">
-         <ModuleChild />
-      </div>}
+      {ModuleChild && (
+        <div className="border-b border-[#262626] py-[30px] col-span-full">
+          <ModuleChild />
+        </div>
+      )}
       {showPagination && <Pagination />}
     </div>
   );

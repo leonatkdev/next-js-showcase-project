@@ -2,14 +2,23 @@ import React from "react";
 import Image from "next/image";
 
 
+type prop = {
+  title: string,
+  desc: string,
+  imgSrc?: string,
+  showButtons?: boolean,
+  showHeaderTabs?: boolean,
+  costumeHeaderClass ?: string 
+}
+
 const Header = ({
   title,
   desc,
   imgSrc,
   showButtons = false,
   showHeaderTabs,
-  costumeHeaderClass,
-}) => {
+  costumeHeaderClass = '',
+}: prop) => {
   const headerTabsData = [
     {
       value: "200+",

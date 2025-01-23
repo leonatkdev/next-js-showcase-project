@@ -2,12 +2,34 @@ import React from "react";
 import Module from "@/components/molecules/module";
 import ModuleWrapper from "@/components/molecules/moduleWrapper";
 
+interface FeaturesboxProps {
+  content: string;
+}
+
+interface FormFieldProps {
+  title: string;
+  placeholder: string;
+  costumeStyle?: string;
+}
+
+
+interface smallData{
+  title: string,
+  desc: string,
+  value: string
+}
+interface DetailsBoxesProp {
+  title: string,
+  btn: string,
+  data: smallData[]
+}
+
 const DetailsPage = () => {
   const DescriptionBox = () => {
     return <div>Box</div>;
   };
 
-  const Featuresbox = ({ content }) => {
+  const Featuresbox = ({ content }: FeaturesboxProps) => {
     return (
       <li className=" text-[#999999] bg-[#1A1A1A] text-sm font-medium py-[10px] px-3 border-l border-l-[#703BF7]">
         {content}
@@ -15,7 +37,7 @@ const DetailsPage = () => {
     );
   };
 
-  const FormField = ({ title, placeholder, costumeStyle }) => {
+  const FormField = ({ title, placeholder, costumeStyle }: FormFieldProps) => {
     return (
       <div className={`flex flex-col gap-[14px]  ${costumeStyle}`}>
         <label className=" text-white text-base font-semibold">{title}</label>
@@ -27,7 +49,7 @@ const DetailsPage = () => {
     );
   };
 
-  const DetailsBoxes = ({ title, btn, data }) => {
+  const DetailsBoxes: React.FC<DetailsBoxesProp> = ({ title, btn, data }) => {
     return (
       <div className=" border border-[#262626] p-5 rounded-xl">
         <div className="flex justify-between items-center">
@@ -224,7 +246,6 @@ const DetailsPage = () => {
                 desc: "Based on the sale price and local regulations",
                 value: "$25,000",
               },
-          
             ]}
           />
           <DetailsBoxes

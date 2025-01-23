@@ -2,7 +2,15 @@ import React from "react";
 import Image from "next/image";
 
 const Footer = () => {
-  const menuFooter = {
+  interface MenuItem {
+    name: string;
+  }
+  
+  interface MenuFooter {
+    [key: string]: MenuItem[];
+  }
+  
+  const menuFooter: MenuFooter = {
     Home: [
       {
         name: "Hero Section",
@@ -35,12 +43,12 @@ const Footer = () => {
             Start Your Real Estate Journey Today
           </span>
           <p className=" text-[#999999] text-sm lg:text-base">
-            Your dream property is just a click away. Whether you're looking for
+            {` Your dream property is just a click away. Whether you're looking for
             a new home, a strategic investment, or expert real estate advice,
             Estatein is here to assist you every step of the way. Take the first
             step towards your real estate goals and explore our available
             properties or get in touch with our team for personalized
-            assistance.
+            assistance.`}
           </p>
           <button className=" px-5 py-[14px] w-full rounded-[10px] bg-[#703BF7] lg:col-[2] lg:row-[1/3] h-fit place-self-center whitespace-nowrap">
             Explore Properties
@@ -69,8 +77,13 @@ const Footer = () => {
           <div className=" grid grid-cols-2 gap-6 lg:flex lg:">
             {Object.keys(menuFooter).map((elm, index) => {
               return (
-                <div key={index} className="border-b border-[#262626] pb-5 lg:border-none">
-                  <span className="block text-[#999999] pb-4 lg:pb-6">{elm}</span>
+                <div
+                  key={index}
+                  className="border-b border-[#262626] pb-5 lg:border-none"
+                >
+                  <span className="block text-[#999999] pb-4 lg:pb-6">
+                    {elm}
+                  </span>
                   <div>
                     {menuFooter[elm] &&
                       menuFooter[elm]?.map((menu) => (

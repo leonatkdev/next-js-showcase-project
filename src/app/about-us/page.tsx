@@ -10,6 +10,7 @@ const About = () => {
         desc="Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary. Over the years, we've expanded our reach, forged valuable partnerships, and gained the trust of countless clients."
         imgSrc="/aboutus.png"
         showHeaderTabs={true}
+        costumeHeaderClass=""
       />
       <main className="flex flex-col gap-8 row-start-2 bg-[#141414] items-center sm:items-start ">
         <Module
