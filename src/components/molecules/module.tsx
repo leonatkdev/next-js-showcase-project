@@ -15,7 +15,6 @@ const Module = ({
   desc,
   moduleName,
   linktitle,
-  linkTag,
   showPagination,
 }) => {
   const Pagination = ({}) => (

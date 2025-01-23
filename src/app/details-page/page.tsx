@@ -20,7 +20,7 @@ const DetailsPage = () => {
       <div className={`flex flex-col gap-[14px]  ${costumeStyle}`}>
         <label className=" text-white text-base font-semibold">{title}</label>
         <input
-          placeholder="placeholder"
+          placeholder={placeholder}
           className=" px-5 py-4 mt-auto font-medium  text-base text-[#666666] bg-[#1A1A1A] rounded-md border border-[#262626] "
         />
       </div>
@@ -40,9 +40,10 @@ const DetailsPage = () => {
           <div className=" grid lg:grid-cols-2">
             {data?.map((box, index) => (
               <div
-                className={`border-b border-[#262626] py-5 ${
+                key={index}
+                className={`border-b border-[#262626] py-5 relative ${
                   index % 2 !== 0 &&
-                  " pl-5 after:content-empty relative after:absolute after:top-1/4 after:left-0 after:w-[1px] after:h-1/2 after:bg-[#262626]"
+                  " lg:pl-5  lg:after:content-empty  lg:after:absolute after:top-1/4 after:left-0 after:w-[1px] after:h-1/2 after:bg-[#262626]"
                 }`}
               >
                 <p className="block text-[#999999] text-sm font-medium mb-[10px]">
@@ -161,6 +162,75 @@ const DetailsPage = () => {
                 desc: "Based on the sale price and local regulations",
                 value: "$25,000",
               },
+              {
+                title: "Property Transfer Tax",
+                desc: "Based on the sale price and local regulations",
+                value: "$25,000",
+              },
+              {
+                title: "Property Transfer Tax",
+                desc: "Based on the sale price and local regulations",
+                value: "$25,000",
+              },
+              {
+                title: "Property Transfer Tax",
+                desc: "Based on the sale price and local regulations",
+                value: "$25,000",
+              },
+              {
+                title: "Property Transfer Tax",
+                desc: "Based on the sale price and local regulations",
+                value: "$25,000",
+              },
+            ]}
+          />
+          <DetailsBoxes
+            title="Additional Fees"
+            btn="Load More"
+            data={[
+              {
+                title: "Property Transfer Tax",
+                desc: "Based on the sale price and local regulations",
+                value: "$25,000",
+              },
+              {
+                title: "Property Transfer Tax",
+                desc: "Based on the sale price and local regulations",
+                value: "$25,000",
+              },
+            ]}
+          />
+          <DetailsBoxes
+            title="Additional Fees"
+            btn="Load More"
+            data={[
+              {
+                title: "Property Transfer Tax",
+                desc: "Based on the sale price and local regulations",
+                value: "$25,000",
+              },
+              {
+                title: "Property Transfer Tax",
+                desc: "Based on the sale price and local regulations",
+                value: "$25,000",
+              },
+              {
+                title: "Property Transfer Tax",
+                desc: "Based on the sale price and local regulations",
+                value: "$25,000",
+              },
+              {
+                title: "Property Transfer Tax",
+                desc: "Based on the sale price and local regulations",
+                value: "$25,000",
+              },
+          
+            ]}
+          />
+          <DetailsBoxes
+            title="Additional Fees"
+            btn="Load More"
+            data={[
               {
                 title: "Property Transfer Tax",
                 desc: "Based on the sale price and local regulations",

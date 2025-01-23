@@ -1,7 +1,4 @@
-import Image from "next/image";
 import { Metadata } from "next";
-import { MdArrowOutward } from "react-icons/md";
-import { FaCircleCheck } from "react-icons/fa6";
 import Module from "@/components/molecules/module";
 import Header from "@/components/organism/header";
 import HeaderTabs from "@/components/atoms/header-tabs";

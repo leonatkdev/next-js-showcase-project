@@ -8,7 +8,6 @@ const Header = ({
   imgSrc,
   showButtons = false,
   showHeaderTabs,
-  showSecondTabs,
   costumeHeaderClass,
 }) => {
   const headerTabsData = [

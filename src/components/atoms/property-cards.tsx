@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Tab = ({ value, name, icon }) => {
+const Tab = ({ value, name }) => {
   return (
     <div className="border border-[#262626] bg-[#1A1A1A] rounded-[28px] py-[6px] px-[14px]">
       {value && value + "-"}

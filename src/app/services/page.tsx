@@ -1,12 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import Header from "@/components/organism/header";
-import Module from "@/components/molecules/module";
 import HeaderTabs from "@/components/atoms/header-tabs";
 import ModuleWrapper from "@/components/molecules/moduleWrapper";
 
 const Page = () => {
-  const Box = ({ icon, title, desc }) => {
+  const Box = ({  title, desc }) => {
     return (
       <div className="  border border-[#262626] rounded-[10px] p-6 text-white">
         <span className=" block text-lg font-semibold ">{title}</span>

@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { title } from "process";
 import { FaTwitter } from "react-icons/fa";
 
 const TeamCard = () => {

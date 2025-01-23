@@ -1,12 +1,11 @@
 import React from "react";
 import Header from "@/components/organism/header";
-import Module from "@/components/molecules/module";
 import HeaderTabs from "@/components/atoms/header-tabs";
 import ModuleWrapper from "@/components/molecules/moduleWrapper";
 
 const Page = () => {
 
-  const Tab = ({  name, icon }) => {
+  const Tab = ({  name }) => {
     return (
       <div className="border border-[#262626] bg-[#1A1A1A] rounded-[28px] py-[6px] px-[14px]">
         {name}
@@ -42,7 +41,7 @@ const Page = () => {
       <div className={`flex flex-col gap-[14px]  ${costumeStyle}`}>
         <label className=" text-white text-base font-semibold">{title}</label>
         <input
-          placeholder="placeholder"
+          placeholder={placeholder}
           className=" px-5 py-4 mt-auto font-medium  text-base text-[#666666] bg-[#1A1A1A] rounded-md border border-[#262626] "
         />
       </div>
