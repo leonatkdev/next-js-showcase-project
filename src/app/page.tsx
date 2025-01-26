@@ -19,6 +19,7 @@ export default function Home() {
         imgSrc="/homepage.png"
         showButtons={true}
         showHeaderTabs={true}
+        hasHomepageBadge={true}
       />
       <HeaderTabs />
 

@@ -38,7 +38,7 @@ const Footer = () => {
   return (
     <>
       <div className="bg-[#1A1A1A] px-4 py-[50px] lg:py-[60px] text-white">
-        <div className="max-w-7xl  m-auto grid lg:grid-cols-[1fr_180px] gap-6">
+        <div className="max-w-container  m-auto grid lg:grid-cols-[1fr_180px] gap-6">
           <span className=" text-[28px] font-semibold pb-[10px] lg:text-[38px] ">
             Start Your Real Estate Journey Today
           </span>
@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
       </div>
       <footer className="bg-[#141414] text-white">
-        <div className="flex flex-col max-w-7xl m-auto pt-12 justify-between pb-20 px-4 gap-12 lg:flex-row ">
+        <div className="flex flex-col max-w-container m-auto pt-12 justify-between pb-20 px-4 gap-12 lg:flex-row ">
           <div className="flex gap-6 flex-col">
             <Image
               src="/next.svg"
@@ -97,7 +97,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="bg-[#1A1A1A] p-3">
-          <div className="flex max-w-7xl m-auto">
+          <div className="flex max-w-container m-auto">
             <span>2025 Estate Project. All Rights Reserved</span>
             <span>Terms & Conditions</span>
           </div>

@@ -1,6 +1,10 @@
 import React from "react";
 import Module from "@/components/molecules/module";
+import Image from "next/image";
 import ModuleWrapper from "@/components/molecules/moduleWrapper";
+
+import ArrowRight from "@/images/arrowRight";
+import ArrowLeft from "@/images/arrowLeft";
 
 interface FeaturesboxProps {
   content: string;
@@ -12,16 +16,15 @@ interface FormFieldProps {
   costumeStyle?: string;
 }
 
-
-interface smallData{
-  title: string,
-  desc: string,
-  value: string
+interface smallData {
+  title: string;
+  desc: string;
+  value: string;
 }
 interface DetailsBoxesProp {
-  title: string,
-  btn: string,
-  data: smallData[]
+  title: string;
+  btn: string;
+  data: smallData[];
 }
 
 const DetailsPage = () => {
@@ -87,24 +90,64 @@ const DetailsPage = () => {
 
   return (
     <div className=" text-white mt-10">
-      <div className="max-w-7xl m-auto px-4 flex flex-col gap-[10px] lg:gap-5 lg:flex-row">
-        <h1 className=" text-xl font-semibold">Seaside Serenity Villa</h1>
-        <div className="flex items-center flex-row gap-5 flex-1 lg:justify-between ">
-          <p className=" border border-[#262626] rounded-md p-2 text-sm">
-            Malibu, California
-          </p>
+      <header className="max-w-container m-auto px-4">
+        <div className=" flex flex-col gap-[10px] lg:gap-5 lg:flex-row">
+          <h1 className=" text-xl font-semibold">Seaside Serenity Villa</h1>
+          <div className="flex items-center flex-row gap-5 flex-1 lg:justify-between ">
+            <p className=" border border-[#262626] rounded-md p-2 text-sm">
+              Malibu, California
+            </p>
 
-          <div className=" flex flex-row gap-1 items-center  text-sm font-medium text-[#999999] lg:flex-col lg:items-start">
-            Price
-            <span className=" text-lg font-semibold text-white">
-              $1,250,000
-            </span>
+            <div className=" flex flex-row gap-1 items-center  text-sm font-medium text-[#999999] lg:flex-col lg:items-start">
+              Price
+              <span className=" text-lg font-semibold text-white">
+                $1,250,000
+              </span>
+            </div>
           </div>
         </div>
-      </div>
+
+        <div className=" flex flex-col gap-5 border border-[#262626] bg-[#1A1A1A] rounded-xl p-5">
+          <div className="flex gap-[10px]">
+            {new Array(9).fill("/homepage.png")?.map((elm, index) => (
+              <Image
+                key={index}
+                src={"/homepage.png"}
+                alt="Apartment Listed"
+                width={122}
+                height={74}
+                className=" rounded-md"
+              />
+            ))}
+          </div>
+          <div>
+            <Image
+              src={"/homepage.png"}
+              alt="Apartment Listed"
+              width={500}
+              height={500}
+            />
+          </div>
+
+          <div className="flex gap-[10px] w-fit m-auto items-center gap-[10px]lg:col-span-full bg-[#141414] rounded-full p-2">
+            <button className=" w-11 h-11  justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A] ">
+              <ArrowLeft />
+            </button>
+
+            <div>
+
+            </div>
+
+
+            <button className=" w-11 h-11 justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A]">
+              <ArrowRight />
+            </button>
+          </div>
+        </div>
+      </header>
 
       <main>
-        <div className="max-w-7xl m-auto px-4 grid gap-5 lg:grid-cols-2  ">
+        <div className="max-w-container m-auto px-4 grid gap-5 lg:grid-cols-2  ">
           <div className="border border-[#262626] p-5 rounded-[10px]">
             <span className="block font-semibold text-lg mb-1">
               Description
@@ -139,7 +182,7 @@ const DetailsPage = () => {
           title="Let's Connect"
           desc="We're excited to connect with you and learn more about your real estate goals. Use the form below to get in touch with Estatein. Whether you're a prospective client, partner, or simply curious about our services, we're here to answer your questions and provide the assistance you need."
         >
-          <div className="grid p-5 gap-5 max-w-7xl m-auto w-full mb-[60px] rounded-xl border border-[#262626] lg:grid-cols-2 lg:p-[50px] lg:gap-[30px]">
+          <div className="grid p-5 gap-5 max-w-container m-auto w-full mb-[60px] rounded-xl border border-[#262626] lg:grid-cols-2 lg:p-[50px] lg:gap-[30px]">
             <FormField title="First Name" placeholder="Enter First Name" />
             <FormField title="Last Name" placeholder="Enter Last Name" />
             <FormField title="Email" placeholder="Enter your Email" />

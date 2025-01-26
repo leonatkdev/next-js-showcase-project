@@ -105,7 +105,7 @@ const Page = () => {
           </div>
         </ModuleWrapper>
 
-        <div className=" flex gap-10 flex-col max-w-7xl m-auto px-4 lg:flex-row lg:py-[60px]">
+        <div className=" flex gap-10 flex-col max-w-container m-auto px-4 lg:flex-row lg:py-[60px]">
           <div className="lg:max-w-[519px]">
             <Image
               src="/starSection.png"

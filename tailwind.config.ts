@@ -19,6 +19,10 @@ export default {
     boxShadow: {
       archievcardsshadow: "0 0 0 4px #191919", // Custom shadow
       propertySearch: "0 0 0 6px #191919",
+      headerTabs: "0 0 0 4px #191919", 
+    },
+    maxWidth: {
+      container: "1440px",
     },
   },
   plugins: [],

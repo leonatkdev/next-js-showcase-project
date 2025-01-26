@@ -10,7 +10,7 @@ interface ModuleWrapperProps {
 
 const ModuleWrapper: React.FC<ModuleWrapperProps> = ({ title, desc, children }) => {
   return (
-    <div className="max-w-7xl m-auto px-4 lg:py-[60px]">
+    <div className="max-w-container m-auto px-4 lg:py-[60px]">
       <Image
         src="/starSection.png"
         width={60}

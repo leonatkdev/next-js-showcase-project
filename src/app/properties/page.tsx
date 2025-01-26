@@ -23,7 +23,7 @@ const Page = () => {
 
   const SearchBar = () => {
     return (
-      <div className="max-w-7xl m-auto bg-transparent">
+      <div className="max-w-container m-auto bg-transparent">
         <div className="relative mx-4">
           <input
             type="text"
@@ -83,7 +83,7 @@ const Page = () => {
           title="Let's Make it Happen"
           desc="Ready to take the first step toward your dream property? Fill out the form below, and our real estate wizards will work their magic to find your perfect match. Don't wait; let's embark on this exciting journey together."
         />
-        <div className="grid p-5 gap-5 max-w-7xl m-auto w-full mb-[60px] rounded-xl border border-[#262626] lg:grid-cols-4 lg:p-[50px] lg:gap-[30px]">
+        <div className="grid p-5 gap-5 max-w-container m-auto w-full mb-[60px] rounded-xl border border-[#262626] lg:grid-cols-4 lg:p-[50px] lg:gap-[30px]">
           <FormField title="First Name" placeholder="Enter First Name" />
           <FormField title="Last Name" placeholder="Enter Last Name" />
           <FormField title="Email" placeholder="Enter your Email" />

@@ -1,15 +1,14 @@
 import React from "react";
 import Image from "next/image";
 
-
 type prop = {
-  title: string,
-  desc: string,
-  imgSrc?: string,
-  showButtons?: boolean,
-  showHeaderTabs?: boolean,
-  costumeHeaderClass ?: string 
-}
+  title: string;
+  desc: string;
+  imgSrc?: string;
+  showButtons?: boolean;
+  showHeaderTabs?: boolean;
+  costumeHeaderClass?: string;
+};
 
 const Header = ({
   title,
@@ -17,9 +16,10 @@ const Header = ({
   imgSrc,
   showButtons = false,
   showHeaderTabs,
-  costumeHeaderClass = '',
+  hasHomepageBadge = false,
+  costumeHeaderClass = "",
 }: prop) => {
-  const headerTabsData = [
+    const headerTabsData = [
     {
       value: "200+",
       key: "Happy Customers",
@@ -36,23 +36,33 @@ const Header = ({
 
   return (
     <header
-      className={`flex flex-col px-4 pt-8 bg-[#141414] text-white ${
+      className={`flex flex-col px-4 pt-8 bg-[#141414] text-white lg:pt-0 ${
         costumeHeaderClass ? costumeHeaderClass : ""
       }`}
     >
-      <div className="flex flex-col items-center md:flex-row-reverse max-w-7xl m-auto">
+      <div className="flex flex-col gap-[60px] items-center md:flex-row-reverse max-w-container m-auto">
         {imgSrc && (
-          <div className="md:w-1/2">
+          <div className=" relative md:w-1/2 ">
             <Image
               src={imgSrc}
               width={960}
               height={500}
               alt="Picture of the author"
+              className="rounded-xl  lg:rounded-none border border-[#262626] "
             />
+            {hasHomepageBadge && (
+              <Image
+                src="/badge.png"
+                width={175}
+                height={175}
+                alt="Homepage badge"
+                className=" absolute w-28 h-28 -bottom-14 md:bottom-auto md:w-32 md:h-32 md:-left-16 md:top-[15%]"
+              />
+            )}
           </div>
         )}
         <div className={`${imgSrc && "md:w-1/2"}`}>
-          <h1 className=" text-[28px] font-semibold lg:text-5xl">{title}</h1>
+          <h1 className=" text-[28px] font-semibold lg:text-5xl ">{title}</h1>
           <p className="text-[#999999] pt-4 font-medium lg:text-base lg:pt-5">
             {desc}
           </p>

@@ -11,7 +11,7 @@ import ExperienceCard from "../atoms/experience-card";
 import TeamCard from "../atoms/team-card";
 
 // ModuleName type
-type ModuleName = 
+type ModuleName =   
   | "property-cards"
   | "testimonials"
   | "faq"
@@ -70,12 +70,12 @@ const Module = ({
         width={60}
         height={24}
         alt="Section icon"
-        className="col-span-full"
+        className="col-span-full w-[60px] h-6"
       />
-      <h2 className="text-[38px] text-[#FFFFFF] col-span-full lg:col-[1/2] lg:row-[2]">
+      <h2 className="text-[28px] mb-[6px] font-semibold text-[#FFFFFF] col-span-full lg:mb-[10px] lg:col-[1/2] lg:row-[2] lg:text-[38px] xl:text-5xl">
         {title}
       </h2>
-      <p className="text-[#999999] col-span-full lg:col-[1/2]">{desc}</p>
+      <p className="text-[#999999] font-medium text-sm col-span-full lg:col-[1/2] lg:text-base">{desc}</p>
     </>
   );
 
@@ -108,7 +108,7 @@ const Module = ({
   const ModuleChild = getModule(moduleName);
 
   return (
-    <div className="max-w-7xl m-auto w-full px-4 py-[40px] grid grid-cols-2 lg:grid-cols-[1fr_180px]  lg:py-[60px]">
+    <div className="max-w-container m-auto w-full px-4 py-[40px] grid grid-cols-2 lg:grid-cols-[1fr_180px]  lg:py-[60px]">
       <SectionHeader title={title} desc={desc} />
       {linktitle && <CallToAction linkTitle={linktitle} />}
       {ModuleChild && (

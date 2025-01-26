@@ -74,7 +74,7 @@ const Page = () => {
           title="Let's Connect"
           desc="We're excited to connect with you and learn more about your real estate goals. Use the form below to get in touch with Estatein. Whether you're a prospective client, partner, or simply curious about our services, we're here to answer your questions and provide the assistance you need."
         >
-          <div className="grid p-5 gap-5 max-w-7xl m-auto w-full mb-[60px] rounded-xl border border-[#262626] lg:grid-cols-3 lg:p-[50px] lg:gap-[30px]">
+          <div className="grid p-5 gap-5 max-w-container m-auto w-full mb-[60px] rounded-xl border border-[#262626] lg:grid-cols-3 lg:p-[50px] lg:gap-[30px]">
             <FormField title="First Name" placeholder="Enter First Name" />
             <FormField title="Last Name" placeholder="Enter Last Name" />
             <FormField title="Email" placeholder="Enter your Email" />

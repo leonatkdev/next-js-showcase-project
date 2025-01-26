@@ -1,33 +1,66 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { IoClose } from "react-icons/io5";
 
 const Navigation = () => {
+  const [showBanner, setShowBanner] = useState(true);
+  const [openMenu, setOpenMenu] = useState(false);
   const pathname = usePathname();
-
-  console.log("pathname", pathname);
 
   return (
     <nav className="bg-[#1A1A1A]">
-      <div className=" max-w-7xl m-auto text-center  bg-[#1A1A1A] text-white  px-4 py-5 ">
-        ✨ Discover Your Dream Property with Estatein Learn More
-      </div>
+      {showBanner && (
+        <div className=" relative text-center bg-[#1A1A1A] text-white  px-4 py-5 lg:py-[18px] ">
+          <div className=" flex relative max-w-container m-auto z-10">
+            <span className="text-xs lg:text-sm m-auto">
+              ✨ Discover Your Dream Property with Estatein Learn More
+            </span>
+            <button
+              onClick={() => setShowBanner(false)}
+              className="bg-[#FFFFFF1A] h-[26px] w-[26px] min-w-[26px] rounded-full flex items-center justify-center"
+            >
+              <IoClose color="#fff" width={12} height={12} />
+            </button>
+          </div>
+          <Image
+            src="/banner.png"
+            alt="Banner Background"
+            width={0}
+            height={0}
+            sizes="100vw"
+            priority
+            style={{
+              width: "100%",
+              height: "100%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 0,
+            }}
+            className=" object-cover"
+          />
+        </div>
+      )}
 
       <div className=" border border-[#262626]">
-        <div className="flex items-cente justify-between max-w-7xl m-auto px-4 py-5">
+        <div className="flex items-cente justify-between max-w-container m-auto px-4 py-5">
           <Image
             src="/next.svg"
             alt="Next.js logo"
             width={180}
             height={38}
-            // className="dark:invert"
             className="invert h-7 md:h-[34px] lg:h-12"
           />
 
-          <ul className="items-cente justify-center  text-white gap-6 hidden lg:flex">
+          <ul
+            className={`items-center p-5 text-white gap-6 flex-col bg-[#1A1A1A] fixed w-full left-0 z-20 h-screen  ${
+              openMenu ? "flex" : "hidden"
+            } lg:relative lg:flex-row lg:h-fit lg:flex lg:justify-center  lg:p-0`}
+          >
             <li className=" flex self-center">
               <Link
                 href="/"
@@ -72,26 +105,26 @@ const Navigation = () => {
                 Services
               </Link>
             </li>
-            {/* <li>
+            <li className="lg:hidden">
               <Link href="/contact-us">Contact</Link>
-            </li> */}
+            </li>
           </ul>
 
           <Link
             href="/contact-us"
-            className={`bg-[#141414] content-center text-white py-2 px-6 border border-[#262626] text-base font-medium  rounded-[10px] ${
-                  pathname === "/contact-us" && " bg-[#703BF7] border-none" }`}
+            className={`hidden bg-[#141414] content-center text-white py-2 px-6 border border-[#262626] text-base font-medium  rounded-[10px] lg:block ${
+              pathname === "/contact-us" && " bg-[#703BF7] border-none"
+            }`}
           >
             Contact
           </Link>
 
-          <button className="lg:hidden">
+          <button className="lg:hidden" onClick={() => setOpenMenu(!openMenu)}>
             <Image
               src="/navMenu.png"
               alt="Navigation Menu"
               width={28}
               height={28}
-              // className="dark:invert"
             />
           </button>
         </div>
