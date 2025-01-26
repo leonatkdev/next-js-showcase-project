@@ -1,4 +1,6 @@
-import React from "react";
+"use client"
+
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import ArrowRight from "@/images/arrowRight";
 import ArrowLeft from "@/images/arrowLeft";
@@ -10,59 +12,60 @@ import AchievementCard from "../atoms/achievement-card";
 import ExperienceCard from "../atoms/experience-card";
 import TeamCard from "../atoms/team-card";
 
-// ModuleName type
-type ModuleName =   
-  | "property-cards"
-  | "testimonials"
-  | "faq"
-  | "achievement-card"
-  | "experience-card"
-  | "team-card";
-
-// ModuleComponent type
-type ModuleComponentType = React.FC | null;
-
-// Props interfaces
-interface ModuleProps {
-  title: string;
-  desc: string;
-  moduleName?: ModuleName; // Updated to allow undefined
-  linktitle?: string;
-  showPagination?: boolean;
-}
-
-interface SectionHeaderProps {
-  title: string;
-  desc: string;
-}
-
-interface CallToActionProps {
-  linkTitle: string;
-}
-
-// Module component
 const Module = ({
   title,
   desc,
   moduleName,
   linktitle,
   showPagination = false,
+  items = [],
 }: ModuleProps) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsToShow, setItemsToShow] = useState(3); // Default for desktop
+
+  useEffect(() => {
+    // Responsive logic to set the number of items based on screen size
+    const handleResize = () => {
+      setItemsToShow(window.innerWidth < 768 ? 1 : 3); // 1 for mobile, 3 for desktop
+    };
+
+    handleResize(); // Run on component mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const next = () => {
+    setCurrentIndex((prev) =>
+      prev + itemsToShow < items.length ? prev + itemsToShow : 0
+    );
+  };
+
+  const prev = () => {
+    setCurrentIndex((prev) =>
+      prev - itemsToShow >= 0 ? prev - itemsToShow : items.length - itemsToShow
+    );
+  };
+
   const Pagination = () => (
     <div className="flex items-center gap-[10px] pt-4 lg:col-span-full">
-      <button className=" w-11 h-11  justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A] lg:order-2">
+      <button
+        onClick={prev}
+        className="w-11 h-11 justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A] lg:order-2"
+      >
         <ArrowLeft />
       </button>
       <span className="text-[#999999] lg:order-1 lg:mr-auto">
-        <span className=" text-white">01</span>
-        of 60
+        <span className="text-white">{String(currentIndex + 1).padStart(2, "0")}</span> of{" "}
+        {String(items.length).padStart(2, "0")}
       </span>
-      <button className=" w-11 h-11 justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A] lg:order-3">
+      <button
+        onClick={next}
+        className="w-11 h-11 justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A] lg:order-3"
+      >
         <ArrowRight />
       </button>
     </div>
   );
-
   const SectionHeader: React.FC<SectionHeaderProps> = ({ title, desc }) => (
     <>
       <Image
@@ -108,15 +111,30 @@ const Module = ({
   const ModuleChild = getModule(moduleName);
 
   return (
-    <div className="max-w-container m-auto w-full px-4 py-[40px] grid grid-cols-2 lg:grid-cols-[1fr_180px]  lg:py-[60px]">
+    <div className="max-w-container m-auto w-full px-4 py-[40px] grid grid-cols-2 lg:grid-cols-[1fr_180px] lg:py-[60px]">
       <SectionHeader title={title} desc={desc} />
       {linktitle && <CallToAction linkTitle={linktitle} />}
-      {ModuleChild && (
-        <div className="border-b border-[#262626] py-[30px] col-span-full">
-          <ModuleChild />
+      <div className="border-b border-[#262626] py-[30px] col-span-full overflow-hidden">
+        <div
+          className="flex transition-transform duration-300"
+          style={{
+            transform: `translateX(-${(currentIndex * 100) / itemsToShow}%)`,
+          }}
+        >
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0"
+              style={{
+                width: `${100 / itemsToShow}%`, // Dynamically calculate the width
+              }}
+            >
+              <ModuleChild {...item} />
+            </div>
+          ))}
         </div>
-      )}
-      {showPagination && <Pagination />}
+      </div>
+      {showPagination && items.length > itemsToShow && <Pagination />}
     </div>
   );
 };

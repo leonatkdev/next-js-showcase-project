@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 
-const Testimonials = () => {
+const Testimonials = ({authorImg, authorName, authorLocation, title, desc}) => {
   return (
-    <div className=" p-[30px] text-white border border-[#262626] rounded-[10px]">
+    <div className=" p-[30px] text-white border border-[#262626] rounded-[10px] lg:mr-5">
       <div className="flex gap-2 pb-5">
         {new Array(5).fill("")?.map((star, index) => (
           <Image
@@ -15,18 +15,16 @@ const Testimonials = () => {
           />
         ))}
       </div>
-      <p className=" text-lg font-semibold pb-[6px]">Exceptional Service!</p>
+      <p className=" text-lg font-semibold pb-[6px]">{title}</p>
       <span className=" font-medium text-sm">
-        {` Our experience with Estatein was outstanding. Their team's dedication
-        and professionalism made finding our dream home a breeze. Highly
-        recommended!`}
+        {desc}
       </span>
       <div className="flex gap-[10px] pt-5">
-        <Image src="/avatar.png" width={50} height={50} alt="Avatar" />
+        <Image src={authorImg} width={50} height={50} alt="Avatar" />
         <div>
-          <p className=" text-base font-medium">Wade Warren</p>
+          <p className=" text-base font-medium">{authorName}</p>
           <span className="text-[#999999] text-sm font-medium">
-            USA, California
+            {authorLocation}
           </span>
         </div>
       </div>

@@ -15,27 +15,27 @@ const Tab: React.FC<TabProps> = ({ value, name }) => {
   );
 };
 
-const PropertyCards = () => {
+const PropertyCards = ({imgSrc, title, desc, bedrooms, bathrooms, type}) => {
   return (
-    <div className="text-white p-6 border border-[#262626] rounded-xl max-w-[512px]">
+    <div className="text-white p-6 border border-[#262626] rounded-xl lg:mr-5">
       <Image
-        src="/cardtest.png"
-        width={310}
-        height={210}
+        src={imgSrc}
+        width={432}
+        height={318}
         alt="Section icon"
+        className=" object-cover rounded-[10px]  w-full h-[210px] lg:w-[353px] lg:h-[255px] xl:w-[432px] xl:h-[318]"
         // className="col-span-full"
       />
       <span className="block pt-4 pb-[2px] font-semibold text-lg">
-        Rustic Retreat Cottage
+        {title}
       </span>
       <p className="text-[#999999] text-sm">
-        An elegant 3-bedroom, 2.5-bathroom townhouse in a gated community...
-        Read More
+      {desc}
       </p>
       <div className="flex flex-wrap gap-[6px] pt-5">
-        <Tab value={4} name="Bedroom" />
-        <Tab value={3} name="Bathroom" />
-        <Tab name="Villa" />
+        <Tab value={bedrooms} name="Bedroom" />
+        <Tab value={bathrooms} name="Bathroom" />
+        <Tab name={type} />
       </div>
       <div className="flex justify-between  pt-5">
         <div>
