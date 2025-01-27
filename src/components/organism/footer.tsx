@@ -99,9 +99,8 @@ const Footer = () => {
                   </span>
                   <div>
                     {menuFooter[elm] &&
-                      menuFooter[elm]?.map((menu) => (
-                        // eslint-disable-next-line react/jsx-key
-                        <span key={menu?.name}>{menu?.name}</span>
+                      menuFooter[elm]?.map((menu, index) => (
+                        <span key={`${menu?.name}-${index}`}>{menu?.name}</span>
                       ))}
                   </div>
                 </div>

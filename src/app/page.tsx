@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Module from "@/components/molecules/module";
 import Header from "@/components/organism/header";
 import HeaderTabs from "@/components/atoms/header-tabs";
-import { title } from "process";
 
 export const metadata: Metadata = {
   title: "Estate Project",

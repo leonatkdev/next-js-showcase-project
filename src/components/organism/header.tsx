@@ -7,6 +7,7 @@ type prop = {
   desc: string;
   imgSrc?: string;
   showButtons?: boolean;
+  hasHomepageBadge?: boolean;
   showHeaderTabs?: boolean;
   costumeHeaderClass?: string;
 };

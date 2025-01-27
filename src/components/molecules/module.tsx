@@ -1,5 +1,7 @@
 "use client";
 
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import ArrowRight from "@/images/arrowRight";
@@ -11,6 +13,38 @@ import FAQ from "../atoms/faq";
 import AchievementCard from "../atoms/achievement-card";
 import ExperienceCard from "../atoms/experience-card";
 import TeamCard from "../atoms/team-card";
+
+// ModuleName type
+type ModuleName =   
+  | "property-cards"
+  | "testimonials"
+  | "faq"
+  | "achievement-card"
+  | "experience-card"
+  | "team-card";
+
+// ModuleComponent type
+type ModuleComponentType = React.FC | null;
+
+// Props interfaces
+interface ModuleProps {
+  title: string;
+  desc: string;
+  moduleName?: ModuleName; // Updated to allow undefined
+  linktitle?: string;
+  showPagination?: boolean,
+  desktopGrid?: number,
+  items?: Array<Record<string, any>>;
+}
+
+interface SectionHeaderProps {
+  title: string;
+  desc: string;
+}
+
+interface CallToActionProps {
+  linkTitle: string;
+}
 
 const Module = ({
   title,
@@ -35,7 +69,7 @@ const Module = ({
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }
-  }, []);
+  }, [showPagination]);
 
   const next = () => {
     setCurrentIndex((prev) =>

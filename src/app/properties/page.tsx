@@ -2,7 +2,6 @@ import React from "react";
 import Header from "@/components/organism/header";
 import Module from "@/components/molecules/module";
 import { CiSearch } from "react-icons/ci";
-import { HiLocationMarker } from "react-icons/hi";
 import LocationSvg from "@/images/locationsvg";
 import HomeSvg from "@/images/homesvg";
 import CalendarSvg from "@/images/calendarsvg";
@@ -15,8 +14,13 @@ interface FormFieldProps {
   costumeStyle?: string;
 }
 
+interface SectionPprops {
+  title: string,
+  icon: React.ReactNode;
+}
+
 const Page = () => {
-  const Section = ({ title, icon }) => {
+  const Section = ({ title, icon }: SectionPprops) => {
     return (
       <div className=" flex items-center border border-[#262626] bg-[#141414] text-[#999999] rounded-lg px-[14px] py-3 w-full">
         {icon}
