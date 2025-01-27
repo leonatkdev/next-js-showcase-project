@@ -24,7 +24,7 @@ type ModuleName =
   | "team-card";
 
 // ModuleComponent type
-type ModuleComponentType = React.FC | null;
+// type ModuleComponentType = React.FC | null;
 
 // Props interfaces
 interface ModuleProps {
@@ -129,8 +129,7 @@ const Module = ({
     </button>
   );
 
-  // Handle undefined or invalid moduleName
-  const getModule = (moduleName?: ModuleName): ModuleComponentType => {
+  const getModule = (moduleName?: ModuleName) => {
     switch (moduleName) {
       case "property-cards":
         return PropertyCards;
@@ -149,7 +148,7 @@ const Module = ({
     }
   };
 
-  const ModuleChild = getModule(moduleName);
+  const ModuleChild: any = getModule(moduleName);
 
   return (
     <div className="max-w-container m-auto w-full px-4 py-[40px] grid grid-cols-2 lg:grid-cols-[1fr_180px] lg:py-[60px]">
@@ -171,23 +170,17 @@ const Module = ({
                   width: `${100 / itemsToShow}%`, // Dynamically calculate the width
                 }}
               >
-                <ModuleChild {...item} />
+                {ModuleChild && <ModuleChild {...item} />}
               </div>
             ))}
           </div>
         </div>
       ) : (
-        <div className={`grid grid-cols-1 py-[30px] col-span-full gap-5 lg:grid-cols-${desktopGrid} `}>
+        <div
+          className={`grid grid-cols-1 py-[30px] col-span-full gap-5 lg:grid-cols-${desktopGrid}`}
+        >
           {items.map((item, index) => (
-            <div
-              key={index}
-              // className="flex-shrink-0"
-              // style={{
-              //   width: `${100 / itemsToShow}%`, // Dynamically calculate the width
-              // }}
-            >
-              <ModuleChild {...item} />
-            </div>
+            <div key={index}>{ModuleChild && <ModuleChild {...item} />}</div>
           ))}
         </div>
       )}
@@ -195,5 +188,6 @@ const Module = ({
     </div>
   );
 };
+
 
 export default Module;

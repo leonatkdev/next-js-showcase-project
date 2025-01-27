@@ -2,7 +2,13 @@ import React from "react";
 import Image from "next/image";
 import { FaTwitter } from "react-icons/fa";
 
-const TeamCard = ({imgSrc ,name , title}) => {
+interface CardsProps {
+  imgSrc: string,
+  name: string,
+  title: string,
+}
+
+const TeamCard  : React.FC<CardsProps> = ({imgSrc ,name , title}) => {
   return (
     <div className=" p-[20px] text-white border border-[#262626]  rounded-xl">
       <Image src={imgSrc} width={316} height={253} alt="team avatar" />

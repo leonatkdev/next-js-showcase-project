@@ -3,8 +3,17 @@ import Link from "next/link";
 import React from "react";
 
 interface TabProps {
-  value?: number;
+  value?: string;
   name: string;
+}
+
+interface CardsProps {
+  imgSrc: string;
+  title: string;
+  desc: string;
+  bedrooms: string;
+  bathrooms: string;
+  type: string;
 }
 
 const Tab: React.FC<TabProps> = ({ value, name }) => {
@@ -16,7 +25,7 @@ const Tab: React.FC<TabProps> = ({ value, name }) => {
   );
 };
 
-const PropertyCards = ({imgSrc, title, desc, bedrooms, bathrooms, type}) => {
+const PropertyCards : React.FC<CardsProps> = ({imgSrc, title, desc, bedrooms, bathrooms, type}) => {
   return (
     <div className="text-white p-6 border border-[#262626] rounded-xl lg:mr-5">
       <Image

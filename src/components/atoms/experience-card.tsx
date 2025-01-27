@@ -1,6 +1,11 @@
 import React from "react";
 
-const ExperienceCard = ({title, desc }) => {
+interface CardsProps {
+  title: string,
+  desc: string,
+}
+
+const ExperienceCard: React.FC<CardsProps> = ({title, desc }) => {
   return (
     <div className=" block text-white">
       <span className=" block py-[14px] px-4 text-base font-medium border-l border-l-[#703BF7] ">
