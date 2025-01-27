@@ -50,7 +50,7 @@ const Header = ({
               width={960}
               height={500}
               priority={true}
-              alt="Picture of the author"
+              alt="Header Image"
               className="rounded-xl  lg:rounded-none border border-[#262626] "
             />
             {hasHomepageBadge && (
