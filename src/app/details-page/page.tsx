@@ -90,8 +90,8 @@ const DetailsPage = () => {
 
   return (
     <div className=" text-white mt-10">
-      <header className="max-w-container m-auto px-4">
-        <div className=" flex flex-col gap-[10px] lg:gap-5 lg:flex-row">
+      <header className="max-w-container m-auto px-4 mb-5 ">
+        <div className=" flex flex-col gap-[10px] mb-[30px] lg:gap-5 lg:flex-row lg:items-center ">
           <h1 className=" text-xl font-semibold">Seaside Serenity Villa</h1>
           <div className="flex items-center flex-row gap-5 flex-1 lg:justify-between ">
             <p className=" border border-[#262626] rounded-md p-2 text-sm">
@@ -108,7 +108,7 @@ const DetailsPage = () => {
         </div>
 
         <div className=" flex flex-col gap-5 border border-[#262626] bg-[#1A1A1A] rounded-xl p-5">
-          <div className="flex gap-[10px]">
+          <div className="flex gap-[10px] overflow-x-auto">
             {new Array(9).fill("/homepage.png")?.map((elm, index) => (
               <Image
                 key={index}
@@ -325,6 +325,24 @@ const DetailsPage = () => {
           linktitle="View All FAQ’s"
           moduleName="faq"
           showPagination={true}
+          items={[
+            {
+              faqTitle: 'How do I search for properties on Estatein?',
+              faqDesc: "Learn how to use our user-friendly search tools to find properties that match your criteria."
+            },
+            {
+              faqTitle: 'What documents do I need to sell my property through Estatein?',
+              faqDesc: "Find out about the necessary documentation for listing your property with us."
+            },
+            {
+              faqTitle: 'How can I contact an Estatein agent?',
+              faqDesc: "Discover the different ways you can get in touch with our experienced agents."
+            },
+            {
+              faqTitle: 'What documents do I need to sell my property through Estatein?',
+              faqDesc: "Find out about the necessary documentation for listing your property with us."
+            },
+          ]}
         />
       </main>
     </div>

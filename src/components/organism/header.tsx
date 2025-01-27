@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 type prop = {
   title: string;
@@ -36,7 +37,7 @@ const Header = ({
 
   return (
     <header
-      className={`flex flex-col px-4 pt-8 bg-[#141414] text-white lg:pt-0 ${
+      className={`flex flex-col px-4 pt-8 bg-[#141414] text-white ${
         costumeHeaderClass ? costumeHeaderClass : ""
       }`}
     >
@@ -47,6 +48,7 @@ const Header = ({
               src={imgSrc}
               width={960}
               height={500}
+              priority={true}
               alt="Picture of the author"
               className="rounded-xl  lg:rounded-none border border-[#262626] "
             />
@@ -55,6 +57,7 @@ const Header = ({
                 src="/badge.png"
                 width={175}
                 height={175}
+                priority={true}
                 alt="Homepage badge"
                 className=" absolute w-28 h-28 -bottom-14 md:bottom-auto md:w-32 md:h-32 md:-left-16 md:top-[15%]"
               />
@@ -71,9 +74,9 @@ const Header = ({
               <button className=" px-5 py-[14px] border border-[#262626] rounded-lg">
                 Learn More
               </button>
-              <button className=" px-5 py-[14px] rounded-lg bg-[#703BF7]">
+              <Link href="/properties" className=" px-5 py-[14px] rounded-lg bg-[#703BF7]">
                 Browse Properties
-              </button>
+              </Link>
             </div>
           )}
           {showHeaderTabs && (

@@ -3,32 +3,40 @@ import Header from "@/components/organism/header";
 import Module from "@/components/molecules/module";
 import { CiSearch } from "react-icons/ci";
 import { HiLocationMarker } from "react-icons/hi";
+import LocationSvg from "@/images/locationsvg";
+import HomeSvg from "@/images/homesvg";
+import CalendarSvg from "@/images/calendarsvg";
+import CashSvg from "@/images/cashsvg";
+import PropertySvg from "@/images/propertysvg";
 
 interface FormFieldProps {
-  title: string,
-  placeholder: string,
-  costumeStyle?: string
+  title: string;
+  placeholder: string;
+  costumeStyle?: string;
 }
 
-
 const Page = () => {
-  const Section = () => {
+  const Section = ({ title, icon }) => {
     return (
       <div className=" flex items-center border border-[#262626] bg-[#141414] text-[#999999] rounded-lg px-[14px] py-3 w-full">
-        <HiLocationMarker color="#999999" width={20} height={20} />
-        <span>Location</span>
+        {icon}
+        <span className="border-l border-l-[#262626] pl-[10px] ml-[10px]">
+          {title}
+        </span>
       </div>
     );
   };
 
   const SearchBar = () => {
     return (
-      <div className="max-w-container m-auto bg-transparent">
+      <div className="max-w-container m-auto bg-transparent -mt-7">
         <div className="relative mx-4">
           <input
             type="text"
             placeholder="Search For A Property"
-            className="bg-[#141414] rounded-xl border border-[#262626] text-base font-medium text-[#666666] px-4 py-[16px] w-full shadow-propertySearch"
+            className="bg-[#141414] rounded-xl border border-[#262626] text-base font-medium text-[#666666] px-4 py-[16px] w-full shadow-propertySearch
+             lg:px-6 lg:py-5
+            "
           />
           <button className=" flex gap-[6px] absolute right-[10px] lg:right-4 top-2  items-center bg-[#703BF7] py-[14px] px-5 rounded-lg">
             <CiSearch color="#fff" width={20} height={20} />
@@ -38,12 +46,12 @@ const Page = () => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-5 mt-5 bg-[#1A1A1A] p-5 rounded-xl lg:flex-row lg:mt-0">
-          <Section />
-          <Section />
-          <Section />
-          <Section />
-          <Section />
+        <div className="flex mx-4 flex-col gap-5 mt-5 bg-[#1A1A1A] p-5 rounded-xl lg:flex-row lg:mt-0">
+          <Section title="Location" icon={<LocationSvg />} />
+          <Section title="Property Type" icon={<HomeSvg />} />
+          <Section title="Pricing Range" icon={<CashSvg />} />
+          <Section title="Property Size" icon={<PropertySvg />} />
+          <Section title="Build Year" icon={<CalendarSvg />} />
         </div>
       </div>
     );
@@ -78,6 +86,40 @@ const Page = () => {
           linktitle=" View All Properties"
           moduleName="property-cards"
           showPagination={true}
+          items={[
+            {
+              imgSrc: "/propertyone.png",
+              title: "Seaside Serenity Villa",
+              desc: "A stunning 4-bedroom, 3-bathroom villa in a peaceful suburban neighborhood...",
+              bedrooms: 4,
+              bathrooms: 3,
+              type: "Villa",
+            },
+            {
+              imgSrc: "/propertytwo.png",
+              title: "Metropolitan Haven",
+              desc: "A chic and fully-furnished 2-bedroom apartment with panoramic city views...",
+              bedrooms: 2,
+              bathrooms: 2,
+              type: "Villa",
+            },
+            {
+              imgSrc: "/propertythree.png",
+              title: "Rustic Retreat Cottage",
+              desc: "An elegant 3-bedroom, 2.5-bathroom townhouse in a gated community... ",
+              bedrooms: 2,
+              bathrooms: 3,
+              type: "Villa",
+            },
+            {
+              imgSrc: "/propertytwo.png",
+              title: "Metropolitan Haven",
+              desc: "A chic and fully-furnished 2-bedroom apartment with panoramic city views...",
+              bedrooms: 2,
+              bathrooms: 2,
+              type: "Villa",
+            },
+          ]}
         />
         <Module
           title="Let's Make it Happen"
@@ -120,7 +162,9 @@ const Page = () => {
           <div className="flex flex-col gap-5  items-center justify-between col-span-full lg:flex-row">
             <div className="flex gap-[10px]">
               <input type="checkbox" className="w-7 h-7" />
-              <label className="text-[#999999] font-medium text-lg">I agree with Terms of Use and Privacy Policy</label>
+              <label className="text-[#999999] font-medium text-lg">
+                I agree with Terms of Use and Privacy Policy
+              </label>
             </div>
             <button className=" w-full bg-[#703BF7] rounded-md  px-9 py-[14px] text-white lg:w-fit ">
               Send Your Message

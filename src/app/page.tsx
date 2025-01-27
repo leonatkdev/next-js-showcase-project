@@ -21,10 +21,12 @@ export default function Home() {
         showButtons={true}
         showHeaderTabs={true}
         hasHomepageBadge={true}
+        costumeHeaderClass="pt-8 lg:pt-0"
+
       />
-      <HeaderTabs />
 
       <main className="flex flex-col row-start-2 bg-[#141414] items-center sm:items-start ">
+      <HeaderTabs />
         <Module
           title="Featured Properties"
           desc=" Explore our handpicked selection of featured properties. Each

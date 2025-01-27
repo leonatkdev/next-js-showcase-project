@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      transform: {
+        "rotate-y-180": "rotateY(180deg)",
+      }
     },
     backgroundImage: {
       gradientToRight: "linear-gradient(45deg , #262626, #262626 53%)",

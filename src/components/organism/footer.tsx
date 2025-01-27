@@ -5,11 +5,11 @@ const Footer = () => {
   interface MenuItem {
     name: string;
   }
-  
+
   interface MenuFooter {
     [key: string]: MenuItem[];
   }
-  
+
   const menuFooter: MenuFooter = {
     Home: [
       {
@@ -33,16 +33,21 @@ const Footer = () => {
     ],
   };
 
-  console.log("footer");
-
   return (
     <>
-      <div className="bg-[#1A1A1A] px-4 py-[50px] lg:py-[60px] text-white">
+      <div className="bg-[#1E1E1E] relative px-4 py-[50px] lg:py-[60px] text-white">
         <div className="max-w-container  m-auto grid lg:grid-cols-[1fr_180px] gap-6">
-          <span className=" text-[28px] font-semibold pb-[10px] lg:text-[38px] ">
+          {/* <Image
+            src="/squares.png"
+            alt="footer square"
+            width={475}
+            height={258}
+            className=" absolute top-0 left-0"
+          /> */}
+          <span className=" text-[28px] font-semibold pb-[10px] lg:text-[38px] relative">
             Start Your Real Estate Journey Today
           </span>
-          <p className=" text-[#999999] text-sm lg:text-base">
+          <p className=" text-[#999999] text-sm lg:text-base relative">
             {` Your dream property is just a click away. Whether you're looking for
             a new home, a strategic investment, or expert real estate advice,
             Estatein is here to assist you every step of the way. Take the first
@@ -53,6 +58,14 @@ const Footer = () => {
           <button className=" px-5 py-[14px] w-full rounded-[10px] bg-[#703BF7] lg:col-[2] lg:row-[1/3] h-fit place-self-center whitespace-nowrap">
             Explore Properties
           </button>
+
+          {/* <Image
+            src="/squares.png"
+            alt="footer square"
+            width={475}
+            height={258}
+            className=" absolute bottom-0 right-0  transform rotate-y-180 transition-transform duration-500"
+          /> */}
         </div>
       </div>
       <footer className="bg-[#141414] text-white">

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface TabProps {
@@ -42,9 +43,9 @@ const PropertyCards = ({imgSrc, title, desc, bedrooms, bathrooms, type}) => {
           <p className="text-[#999999] text-lg">Price</p>
           <span className=" text-2xl font-semibold">$550,000</span>
         </div>
-        <button className="bg-[#703BF7] py-[14px] px-5 rounded-lg">
+        <Link href='/details-page' className="bg-[#703BF7] py-[14px] px-5 rounded-lg">
           View Property Details
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ const HeaderTabs = () => {
     },
   ];
   return (
-    <div className="grid grid-cols-2 p-[10px] border border-[#262626] bg-[#141414] shadow-archievcardsshadow gap-[10px] mx-4 rounded-xl lg:grid-cols-4 lg:mx-0 lg:rounded-none">
+    <div className="grid grid-cols-2 w-full p-[10px] border border-[#262626] bg-[#141414] shadow-archievcardsshadow gap-[10px] mx-4 rounded-xl lg:grid-cols-4 lg:mx-0 lg:rounded-none">
       {data?.map((elm, index) => (
         <div
           key={index}
