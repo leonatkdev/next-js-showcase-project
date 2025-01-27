@@ -11,7 +11,6 @@ const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const pathname = usePathname();
 
-  console.log('showBanner', showBanner)
 
   const handleCloseMenu = () => {
     setOpenMenu(false);
@@ -33,7 +32,8 @@ const Navigation = () => {
               <button
                 onClick={() => setShowBanner(false)}
                 className="bg-[#FFFFFF1A] h-[26px] w-[26px] min-w-[26px] rounded-full flex items-center justify-center"
-              >
+                aria-label="Close Banner Button"
+             >
                 <IoClose color="#fff" width={12} height={12} />
               </button>
             </div>
@@ -67,6 +67,8 @@ const Navigation = () => {
                 alt="Next.js logo"
                 width={180}
                 height={38}
+                loading="eager"
+                priority={true}
                 className="invert h-7 md:h-[34px] lg:h-12"
               />
             </Link>
@@ -143,6 +145,7 @@ const Navigation = () => {
             <button
               className="lg:hidden"
               onClick={() => setOpenMenu(!openMenu)}
+              aria-label="Open Navigation Menu"
             >
               <Image
                 src="/navMenu.png"

@@ -87,6 +87,7 @@ const Module = ({
     <div className="flex items-center gap-[10px] pt-4 lg:col-span-full">
       <button
         onClick={prev}
+        aria-label="Pervious Carusel Button"
         className="w-11 h-11 justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A] lg:order-2"
       >
         <ArrowLeft />
@@ -99,6 +100,7 @@ const Module = ({
       </span>
       <button
         onClick={next}
+        aria-label="Next Carusel Button"
         className="w-11 h-11 justify-items-center rounded-full border border-[#262626] bg-[#1A1A1A] lg:order-3"
       >
         <ArrowRight />
@@ -109,10 +111,10 @@ const Module = ({
     <>
       <Image
         src="/starSection.png"
-        width={60}
+        width={55}
         height={24}
         alt="Section icon"
-        className="col-span-full w-[60px] h-6"
+        className="col-span-full w-[55px] h-6"
       />
       <h2 className="text-[28px] mb-[6px] font-semibold text-[#FFFFFF] col-span-full lg:mb-[10px] lg:col-[1/2] lg:row-[2] lg:text-[38px] xl:text-5xl">
         {title}
